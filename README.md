@@ -1,14 +1,18 @@
-# 🧠 Advanced Brain Tumor Detection & Report Analysis Model
+# 🧠 Advanced Brain Tumor Detection & Report Analysis
 
 <p align="center">
-  <img src="https://img.shields.io/badge/AI-Medical%20Imaging-0EA5E9?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Medical%20AI-Brain%20MRI-0EA5E9?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Deep%20Learning-TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" />
-  <img src="https://img.shields.io/badge/Framework-Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" />
-  <img src="https://img.shields.io/badge/Domain-Brain%20MRI-7C3AED?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Computer%20Vision-OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" />
+  <img src="https://img.shields.io/badge/Research%20Prototype-7C3AED?style=for-the-badge" />
 </p>
 
 <p align="center">
-  <b>From image classification → toward structured medical-AI analysis.</b>
+  <strong>From MRI classification to an analysis-oriented medical AI workflow.</strong>
+</p>
+
+<p align="center">
+  A research prototype exploring automated brain-tumor detection, prediction analysis, and structured report-oriented output.
 </p>
 
 <p align="center">
@@ -19,59 +23,23 @@
 
 ---
 
-## 🔬 What is this?
+## 📄 Research / Technical Context
 
-**Advanced Brain Tumor Detection & Report Analysis Model** is a medical-imaging AI prototype designed to go beyond a conventional **tumor vs. no-tumor classifier**.
-
-A typical beginner brain-tumor project follows:
-
-```text
-MRI Image
-   ↓
-CNN
-   ↓
-Prediction
-   ↓
-Tumor / No Tumor
-```
-
-This project explores a broader workflow:
-
-```text
-MRI / Medical Image
-        ↓
-Preprocessing
-        ↓
-Deep Learning Model
-        ↓
-Tumor Detection
-        ↓
-Prediction Analysis
-        ↓
-Structured / Report-Oriented Output
-```
-
-The objective is to make the model output more useful for **analysis, interpretation, experimentation, and future clinical-AI workflows**, rather than stopping at a single binary label.
-
-> ⚠️ **Prototype / Research Project:** This repository is intended for experimentation and demonstration. It is not a clinical diagnostic system and should not be used for medical diagnosis or treatment decisions.
+> ### Research-Oriented Medical AI Prototype
+>
+> This project explores a broader medical-imaging workflow rather than treating brain-tumor detection as a standalone binary classification problem.
+>
+> The implementation is organized around three stages:
+>
+> **Imaging → Prediction → Structured Analysis**
+>
+> This makes the notebook suitable as a foundation for experimentation around medical-image understanding and report-oriented AI workflows.
 
 ---
 
-# ⭐ Why is this different from a basic brain tumor model?
+# 01 · Overview
 
-This is the main idea behind the project.
-
-Most introductory brain-tumor projects focus almost entirely on:
-
-> **"Is a tumor present?"**
-
-That is a valid classification problem, but it represents only one stage of a larger medical-analysis workflow.
-
-This project is designed around a broader question:
-
-> **"How can an AI system turn an imaging prediction into a more structured and useful analysis workflow?"**
-
-### Basic Model
+Most introductory brain-tumor projects stop at:
 
 ```text
 MRI
@@ -80,247 +48,458 @@ MRI
 CNN
  │
  ▼
-Binary Classification
- │
- ├── Tumor
- └── No Tumor
+Tumor / No Tumor
 ```
 
-### This Project
+This project explores a larger pipeline:
 
 ```text
-                    MRI IMAGE
-                        │
-                        ▼
-                Image Preprocessing
-                        │
-                        ▼
-                 Deep Learning Model
-                        │
-                        ▼
-                 Tumor Prediction
-                        │
-            ┌───────────┴───────────┐
-            ▼                       ▼
-       Model Output            Confidence/
-                              Prediction Analysis
-            │                       │
-            └───────────┬───────────┘
-                        ▼
-               Structured Reporting
-                 / Interpretation
+                 ┌─────────────────────┐
+                 │      MRI INPUT      │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │    PREPROCESSING    │
+                 │  Image Preparation  │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │   DEEP LEARNING     │
+                 │      INFERENCE      │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │   TUMOR PREDICTION  │
+                 └──────────┬──────────┘
+                            │
+                ┌───────────┴───────────┐
+                ▼                       ▼
+      ┌─────────────────┐     ┌──────────────────┐
+      │ Model Output /  │     │ Prediction       │
+      │ Classification  │     │ Analysis         │
+      └────────┬────────┘     └────────┬─────────┘
+               └────────────┬──────────┘
+                            ▼
+                 ┌─────────────────────┐
+                 │ STRUCTURED REPORT / │
+                 │ ANALYSIS OUTPUT     │
+                 └─────────────────────┘
 ```
 
-### Core difference
-
-| Conventional Project                              | This Project                                                |
-| ------------------------------------------------- | ----------------------------------------------------------- |
-| Binary classification                             | Detection + analysis workflow                               |
-| Focuses on one prediction                         | Focuses on prediction + interpretation                      |
-| Output is usually a label                         | Output can be organized into report-style information       |
-| Primarily model-centric                           | Workflow-centric                                            |
-| Demonstrates CNN classification                   | Explores a broader medical-AI pipeline                      |
-| Often treated as a standalone notebook experiment | Designed as a foundation for further medical-AI development |
-
-The key distinction is **not simply using a “bigger” neural network**.
-
-The difference is the **scope of the workflow around the model**.
+The important difference is that **classification is treated as one component of the workflow rather than the complete system.**
 
 ---
 
-# 🚀 Project Highlights
+# 02 · Why This Is More Than a Basic Tumor Classifier
 
-| Component                   | Purpose                                             |
-| --------------------------- | --------------------------------------------------- |
-| 🧠 Brain MRI Analysis       | Process medical images for tumor-related prediction |
-| 🔍 Tumor Detection          | Identify the predicted tumor class                  |
-| 📊 Prediction Analysis      | Examine model output and confidence                 |
-| 📝 Report-Oriented Output   | Organize results into a more interpretable format   |
-| 🖼️ Image Preprocessing     | Prepare MRI inputs for the model                    |
-| 🤖 Deep Learning            | Perform automated image analysis                    |
-| 📓 Notebook Workflow        | Easy experimentation and reproduction               |
-| 🔬 Research-Oriented Design | Foundation for future extensions                    |
+A conventional project typically answers one question:
+
+> **Does this image belong to the tumor class?**
+
+That is useful, but limited.
+
+This prototype explores the next layer:
+
+> **How can a model prediction be organized into a more useful analysis workflow?**
+
+### Conventional ML workflow
+
+```text
+Input
+  ↓
+Feature Extraction
+  ↓
+Classifier
+  ↓
+Binary Label
+```
+
+### This project's workflow
+
+```text
+Input MRI
+   ↓
+Image Processing
+   ↓
+Deep Learning Inference
+   ↓
+Tumor Prediction
+   ↓
+Prediction Analysis
+   ↓
+Structured Interpretation
+   ↓
+Report-Oriented Output
+```
+
+### Architectural distinction
+
+| Basic Brain-Tumor Project  | This Prototype                           |
+| -------------------------- | ---------------------------------------- |
+| Image classification       | Image classification + analysis workflow |
+| Binary output              | Prediction + organized interpretation    |
+| Model-centric              | Workflow-centric                         |
+| Usually ends at prediction | Extends beyond prediction                |
+| Primarily demonstrates ML  | Explores medical-AI system design        |
+| Limited output context     | Structured report-oriented output        |
+
+> **The differentiator is the workflow surrounding the model, not simply claiming a more complex neural network.**
 
 ---
 
-# 🧬 End-to-End Workflow
+# 03 · System Architecture
 
 ```mermaid
-flowchart TD
-    A["🧠 MRI / Medical Image"] --> B["Image Preprocessing"]
-    B --> C["Deep Learning Model"]
-    C --> D["Tumor Prediction"]
-    D --> E["Prediction Analysis"]
-    E --> F["Structured Report / Interpretation"]
-    F --> G["Final Output"]
+flowchart TB
+
+    A["🧠 MRI / Medical Image"]
+
+    B["Image Preparation<br/>Preprocessing"]
+
+    C["Deep Learning Model"]
+
+    D["Tumor Prediction"]
+
+    E["Prediction Analysis"]
+
+    F["Structured Reporting"]
+
+    G["Research / Evaluation"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
 ```
 
-The project therefore treats **classification as one component of the system**, rather than the entire product.
+### Pipeline layers
+
+```text
+┌─────────────────────────────────────┐
+│             IMAGING LAYER           │
+│ MRI → preprocessing → representation│
+└──────────────────┬──────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────┐
+│          PREDICTION LAYER           │
+│      deep learning classification   │
+└──────────────────┬──────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────┐
+│           ANALYSIS LAYER            │
+│ prediction → interpretation → report│
+└─────────────────────────────────────┘
+```
+
+This layered structure makes the project easier to extend toward future medical-AI components.
 
 ---
 
-# 🧠 What the model is trying to solve
+# 04 · The Core Idea
 
-A simple classifier may return something like:
+### Traditional approach
 
 ```text
-Prediction: Tumor
+         MRI
+          │
+          ▼
+     ┌──────────┐
+     │  Model   │
+     └────┬─────┘
+          │
+          ▼
+     Tumor = YES
 ```
 
-A more useful analysis workflow can instead organize the model's output into a form that is easier to inspect and potentially integrate into a reporting system.
+### Proposed analysis-oriented approach
+
+```text
+                    MRI
+                     │
+                     ▼
+              ┌─────────────┐
+              │ Deep Model  │
+              └──────┬──────┘
+                     │
+                     ▼
+              Model Prediction
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+          ▼                     ▼
+      Class Output        Prediction Analysis
+          │                     │
+          └──────────┬──────────┘
+                     ▼
+              Structured Result
+                     │
+                     ▼
+                Report Layer
+```
+
+This separation creates a foundation for integrating additional analysis modules without changing the entire system architecture.
+
+---
+
+# 05 · Technical Pipeline
+
+## 🧪 Stage 1 — Image Input
+
+The workflow begins with medical-image input, primarily focused on brain MRI imagery.
+
+```text
+MRI / Medical Image
+        ↓
+Input Validation
+        ↓
+Image Preparation
+```
+
+---
+
+## ⚙️ Stage 2 — Preprocessing
+
+Medical images require consistent preprocessing before model inference.
 
 Conceptually:
 
 ```text
-INPUT
-MRI Image
+Raw Image
    ↓
-MODEL
-Tumor Prediction
+Read Image
    ↓
-ANALYSIS
-Prediction / Confidence / Relevant Output
+Resize / Normalize
    ↓
-REPORT
-Structured Result
+Tensor Representation
+   ↓
+Model Input
 ```
 
-This separation between **prediction** and **report-oriented interpretation** is one of the primary ideas behind the project.
+The exact preprocessing operations should follow the notebook implementation and dataset assumptions.
 
 ---
 
-# 🏗️ System Architecture
+## 🧠 Stage 3 — Deep Learning Inference
+
+The prepared image is passed through the trained deep-learning model.
+
+```text
+Preprocessed MRI
+       │
+       ▼
+Feature Extraction
+       │
+       ▼
+Learned Representation
+       │
+       ▼
+Classification Head
+       │
+       ▼
+Prediction
+```
+
+---
+
+## 📊 Stage 4 — Prediction Analysis
+
+Instead of immediately treating the classification output as the final product, the result becomes an input to the analysis stage.
+
+```text
+Model Prediction
+       │
+       ├── Class
+       ├── Model Output
+       └── Prediction Information
+                │
+                ▼
+          Analysis Layer
+```
+
+---
+
+## 📝 Stage 5 — Structured Reporting
+
+The analysis stage organizes available model information into a more readable output.
+
+```text
+Prediction
+   +
+Analysis
+   ↓
+Structured Result
+   ↓
+Report-Oriented Output
+```
+
+This concept is particularly useful for future systems combining computer vision with medical-language or reporting models.
+
+---
+
+# 06 · What Makes the Workflow More Advanced?
+
+The project is designed around **system-level thinking** rather than only model training.
+
+### ① Classification is not the endpoint
+
+The prediction is passed into a separate analysis/reporting stage.
+
+### ② Modular architecture
+
+The pipeline naturally separates:
+
+```text
+Image Processing
+        ↓
+Model Inference
+        ↓
+Analysis
+        ↓
+Reporting
+```
+
+Each stage can be improved independently.
+
+### ③ Extensible medical-AI design
+
+The architecture provides a foundation for adding future components such as:
+
+```text
+Segmentation
+     ↓
+Tumor Localization
+     ↓
+Feature Extraction
+     ↓
+Multi-modal Analysis
+     ↓
+Report Generation
+```
+
+These represent future extension directions rather than completed functionality unless implemented in the notebook.
+
+---
+
+# 07 · Model Workflow
 
 ```mermaid
 flowchart LR
 
-    A["MRI Input"] --> B["Preprocessing"]
-    B --> C["Feature Extraction"]
-    C --> D["Deep Learning Classifier"]
+    A["MRI"] --> B["Preprocessing"]
 
-    D --> E["Tumor Prediction"]
-    D --> F["Prediction Confidence / Output"]
+    B --> C["Learned Features"]
 
-    E --> G["Analysis Layer"]
-    F --> G
+    C --> D["Classifier"]
 
-    G --> H["Structured Report"]
-```
+    D --> E["Prediction"]
 
-### Architecture philosophy
+    E --> F["Analysis"]
 
-The workflow is divided into three conceptual layers:
-
-**1. Imaging Layer**
-Processes and prepares the medical image.
-
-**2. Prediction Layer**
-Uses deep learning to generate the tumor-related prediction.
-
-**3. Analysis Layer**
-Organizes the prediction into a more interpretable report-oriented output.
-
----
-
-# 🖼️ Input → Prediction → Report
-
-```text
-┌────────────────────┐
-│      MRI IMAGE     │
-└─────────┬──────────┘
-          │
-          ▼
-┌────────────────────┐
-│   PREPROCESSING    │
-└─────────┬──────────┘
-          │
-          ▼
-┌────────────────────┐
-│   ML MODEL         │
-│                    │
-│ Feature Extraction │
-│ + Classification   │
-└─────────┬──────────┘
-          │
-          ▼
-┌────────────────────┐
-│    PREDICTION      │
-└─────────┬──────────┘
-          │
-          ▼
-┌────────────────────┐
-│ REPORT / ANALYSIS  │
-└────────────────────┘
+    F --> G["Report-Oriented Output"]
 ```
 
 ---
 
-# 🔍 Why report analysis matters
+# 08 · Medical-AI Design Philosophy
 
-A model prediction alone is often difficult to use outside a pure ML experiment.
+The project follows a simple principle:
 
-For example:
+> **A useful medical-AI system should provide more structure around a prediction than a raw class label alone.**
 
-```text
-"Tumor"
-```
-
-is much less informative as a system output than a structured result containing the available model output and analysis.
-
-The project therefore explores a workflow in which the prediction becomes an input to a **structured reporting layer**.
-
-This makes the project more extensible toward:
-
-* medical report generation
-* clinical-AI interfaces
-* decision-support prototypes
-* multimodal medical AI
-* future radiology workflow integration
-
-> These are **future/extension directions**, not claims that the current prototype independently provides clinical validation.
-
----
-
-# 📊 Model Output
-
-The notebook is designed around producing a model prediction from medical-image input.
-
-A typical workflow is:
+That leads to the following design progression:
 
 ```text
-Image
-  ↓
-Preprocessing
-  ↓
-Model Inference
-  ↓
-Predicted Class
-  ↓
+LEVEL 1
+Image Classification
+       ↓
+"Is a tumor predicted?"
+
+LEVEL 2
 Prediction Analysis
-  ↓
-Structured Output
+       ↓
+"What does the model output indicate?"
+
+LEVEL 3
+Structured Reporting
+       ↓
+"How can the output be organized for review?"
+
+LEVEL 4
+Future Multimodal Workflow
+       ↓
+"How can image + report + clinical context
+be combined?"
 ```
 
-The exact output should be interpreted according to the notebook implementation and dataset used.
+The current repository primarily demonstrates the earlier stages of this architecture while providing a foundation for future expansion.
 
 ---
 
-# 🧪 Research & Experimentation
+# 09 · Dataset & Evaluation
 
-The project is structured as a notebook-based experimentation environment, making it suitable for:
+The notebook should be evaluated according to the dataset and methodology used in the implementation.
 
-* model experimentation
-* preprocessing experiments
-* medical-image classification research
-* prediction analysis
-* report-generation concepts
-* future model improvements
+Important dimensions include:
 
-Rather than presenting the project as a finished clinical product, the repository is intended as a **research-oriented prototype** that can be extended.
+```text
+Dataset quality
+        ↓
+Class balance
+        ↓
+Image preprocessing
+        ↓
+Train / validation separation
+        ↓
+Model performance
+        ↓
+Generalization
+```
+
+Avoid interpreting a single accuracy value as proof of clinical usefulness.
+
+For medical AI, evaluation should eventually consider:
+
+* sensitivity
+* specificity
+* precision
+* recall
+* F1 score
+* ROC-AUC
+* external validation
+* dataset shift
+
+Only metrics actually produced by the notebook should be reported as project results.
 
 ---
 
-# 🧰 Technology Stack
+# 10 · Visualizing the Concept
+
+```mermaid
+flowchart TD
+
+    A["INPUT<br/>🧠 Brain MRI"] --> B["PROCESS<br/>⚙️ Preprocessing"]
+
+    B --> C["UNDERSTAND<br/>🔬 Deep Learning"]
+
+    C --> D["PREDICT<br/>🎯 Tumor Classification"]
+
+    D --> E["ANALYZE<br/>📊 Prediction Analysis"]
+
+    E --> F["STRUCTURE<br/>📝 Report-Oriented Output"]
+
+    F --> G["EXTEND<br/>🚀 Future Medical AI"]
+```
+
+---
+
+# 11 · Technology Stack
 
 <p align="center">
 
@@ -328,32 +507,38 @@ Rather than presenting the project as a finished clinical product, the repositor
 
 </p>
 
-| Technology         | Role                        |
-| ------------------ | --------------------------- |
-| Python             | Core development            |
-| TensorFlow / Keras | Deep learning               |
-| OpenCV             | Image processing            |
-| NumPy              | Numerical computation       |
-| Pandas             | Data handling               |
-| Scikit-learn       | ML utilities / evaluation   |
-| Matplotlib         | Visualization               |
-| Jupyter Notebook   | Experimentation environment |
+| Technology             | Purpose                     |
+| ---------------------- | --------------------------- |
+| **Python**             | Core implementation         |
+| **TensorFlow / Keras** | Deep-learning model         |
+| **OpenCV**             | Image processing            |
+| **NumPy**              | Numerical operations        |
+| **Pandas**             | Data handling               |
+| **Scikit-learn**       | Evaluation / ML utilities   |
+| **Matplotlib**         | Visualization               |
+| **Jupyter**            | Interactive experimentation |
 
 ---
 
-# 📓 Run the Project
+# 12 · Notebook
 
-The main implementation is available directly as a Jupyter Notebook:
+The complete prototype is currently provided as a Jupyter Notebook.
 
-### ▶️ [Open the Model Notebook](https://github.com/ShlokMishra01/Advanced-Brain-tumor-detection-model/blob/main/Tumor_detection_and_report_analysis_model_v_01%20%281%29.ipynb)
+### 📓 [Open the Model Notebook →](https://github.com/ShlokMishra01/Advanced-Brain-tumor-detection-model/blob/main/Tumor_detection_and_report_analysis_model_v_01%20%281%29.ipynb)
 
-### Install dependencies
+The notebook provides the primary experimentation workflow for the project.
+
+---
+
+# 13 · Quick Start
+
+### Install
 
 ```bash
 pip install tensorflow keras opencv-python matplotlib numpy pandas scikit-learn jupyter
 ```
 
-### Launch Jupyter
+### Launch
 
 ```bash
 jupyter notebook
@@ -365,126 +550,140 @@ Then open:
 Tumor_detection_and_report_analysis_model_v_01 (1).ipynb
 ```
 
-Run the notebook cells sequentially and follow the dataset/model instructions contained within it.
+Run the notebook sequentially and follow the dataset and execution instructions contained within it.
 
 ---
 
-# 📁 Repository Structure
+# 14 · Repository Structure
 
 ```text
 Advanced-Brain-tumor-detection-model/
 │
 ├── Tumor_detection_and_report_analysis_model_v_01 (1).ipynb
-│   └── Main model and analysis notebook
+│   ├── Data preparation
+│   ├── Image processing
+│   ├── Model workflow
+│   ├── Prediction
+│   └── Analysis
 │
 └── README.md
 ```
 
 ---
 
-# 🎯 Project Goals
+# 15 · Future Architecture
 
-The project explores how medical AI can evolve from a basic classification task into a broader analysis workflow.
+The current prototype can serve as a foundation for a significantly broader medical-AI pipeline.
 
-### Current direction
+```mermaid
+flowchart LR
 
-```text
-Medical Image
-     ↓
-AI Prediction
-     ↓
-Prediction Analysis
-     ↓
-Structured Reporting
+    A["MRI"] --> B["Preprocessing"]
+
+    B --> C["Tumor Detection"]
+
+    C --> D["Tumor Localization"]
+
+    D --> E["Segmentation"]
+
+    E --> F["Feature Extraction"]
+
+    F --> G["Clinical / Report Context"]
+
+    G --> H["Multimodal Analysis"]
+
+    H --> I["Structured Report"]
+
+    I --> J["Human Review"]
 ```
 
-### Future direction
+Potential future extensions include:
 
-```text
-MRI
- ↓
-Segmentation / Detection
- ↓
-Feature Analysis
- ↓
-Tumor Characterization
- ↓
-Multimodal Report Analysis
- ↓
-Human-in-the-loop Decision Support
-```
-
-These extensions are research directions and are not represented as completed functionality unless implemented in the repository.
+`Segmentation` · `Tumor Localization` · `Explainable AI` · `Multimodal Models` · `Report Generation` · `Human-in-the-loop Review`
 
 ---
 
-# ⚠️ Limitations & Responsible Use
+# 16 · Prototype Status
 
-This repository is a **prototype/research project**.
+<div align="center">
 
-It should not be interpreted as:
+### 🧪 RESEARCH PROTOTYPE
 
-* a clinically validated diagnostic system
-* a replacement for a radiologist or physician
-* medical advice
-* a certified medical device
+**Current focus:**
+Brain MRI analysis + deep-learning prediction + report-oriented workflow exploration
 
-Model performance depends on factors such as the dataset, preprocessing, image quality, training distribution, and evaluation methodology.
+</div>
 
-Any clinical deployment would require substantially more validation, appropriate datasets, expert review, regulatory consideration, and prospective testing.
+This repository should be considered an **experimental medical-AI prototype**, not a clinically validated diagnostic product.
 
 ---
 
-# 💡 What makes this project interesting?
+# 17 · Responsible Use
 
-The project is intentionally moving beyond the common:
+⚠️ **This project is not intended for clinical diagnosis, treatment decisions, or emergency medical use.**
 
-```text
-Image → CNN → Tumor / No Tumor
-```
+Machine-learning predictions can be affected by:
 
-pattern.
+* dataset characteristics
+* image quality
+* preprocessing
+* model bias
+* distribution shift
+* unseen cases
 
-Its central design idea is:
-
-```text
-                ┌──────────────────┐
-                │   MEDICAL IMAGE  │
-                └────────┬─────────┘
-                         ↓
-                ┌──────────────────┐
-                │    AI MODEL      │
-                └────────┬─────────┘
-                         ↓
-                ┌──────────────────┐
-                │    PREDICTION    │
-                └────────┬─────────┘
-                         ↓
-                ┌──────────────────┐
-                │     ANALYSIS     │
-                └────────┬─────────┘
-                         ↓
-                ┌──────────────────┐
-                │ STRUCTURED REPORT│
-                └──────────────────┘
-```
-
-That shift—from **classification alone** toward **analysis and reporting around the prediction**—is the primary motivation behind the project.
+Any clinical deployment would require extensive external validation, clinical expert review, regulatory assessment, and prospective testing.
 
 ---
 
-# 📌 Project Status
+# 18 · Research Direction
 
-**Status:** 🧪 Prototype / Research
+The long-term direction of the project can be summarized as:
 
-The repository currently serves as an experimental foundation for brain-tumor image analysis and report-oriented medical-AI workflows.
+```text
+             TODAY
+               │
+               ▼
+       Brain MRI Classification
+               │
+               ▼
+        Prediction Analysis
+               │
+               ▼
+        Structured Reporting
+               │
+               ▼
+             FUTURE
+               │
+               ▼
+     Multimodal Medical AI
+               │
+               ▼
+       Human-in-the-loop
+        Decision Support
+```
+
+---
+
+# 📄 Research Note
+
+This repository is intended as a **research and engineering prototype** for exploring how brain-MRI classification can be integrated into a broader medical-AI analysis workflow.
+
+The project deliberately separates:
+
+**Model prediction**
+
+from
+
+**Interpretation / reporting**
+
+which provides a more extensible architecture than a standalone classification notebook.
 
 ---
 
 <p align="center">
 
-### 🧠 Medical Imaging × Deep Learning × Structured Analysis
+### 🧠 MRI → AI → Analysis → Structured Output
 
-**Built for experimentation, research, and future expansion.**
+**A prototype exploring the next step beyond basic medical-image classification.**
 
 </p>
